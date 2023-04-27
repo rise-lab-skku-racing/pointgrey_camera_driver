@@ -77,7 +77,7 @@ private:
   {
 
     // Stereo is only active in this mode (16 bits, 8 for each image)
-    config.video_mode = "format7_mode3";
+    config.video_mode = "format7_mode0";
 
     try
     {

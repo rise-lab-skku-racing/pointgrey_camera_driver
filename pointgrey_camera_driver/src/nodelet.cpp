@@ -107,6 +107,10 @@ private:
       // Store CameraInfo binning information
       binning_x_ = 1;
       binning_y_ = 1;
+      // roi_width_ = 1132;
+      // roi_height_ = 850;
+      // roi_x_offset_ = 126;
+      // roi_y_offset_ = 92;
       /*
       if(config.video_mode == "640x480_mono8" || config.video_mode == "format7_mode1")
       {
@@ -132,15 +136,15 @@ private:
         roi_y_offset_ = config.format7_y_offset;
         roi_width_ = config.format7_roi_width;
         roi_height_ = config.format7_roi_height;
-        do_rectify_ = true; // Set to true if an ROI is used.
+        do_rectify_ = false; // Set to true if an ROI is used.
       }
       else
       {
         // Zeros mean the full resolution was captured.
+        roi_width_ = 0;
+        roi_height_ = 0;
         roi_x_offset_ = 0;
         roi_y_offset_ = 0;
-        roi_height_ = 0;
-        roi_width_ = 0;
         do_rectify_ = false; // Set to false if the whole image is captured.
       }
     }
@@ -510,7 +514,7 @@ private:
             wfov_image->info = *ci_;
 
             // Publish the full message
-            pub_->publish(wfov_image);
+            // pub_->publish(wfov_image);
 
             // Publish the message using standard image transport
             if(it_pub_.getNumSubscribers() > 0)
